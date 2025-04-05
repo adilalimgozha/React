@@ -32,11 +32,21 @@ function App() {
     clearInterval(interv)
   }
 
+  let word
+
+ if (isRunning== false && timer == 0){
+    word = <button onClick={startTimer}>Start</button>
+  }else if (isRunning== false && timer > 0){
+    word = <button onClick={startTimer}>Continue</button>
+  }else{
+    word = <button onClick={stopTimer}>Stop</button>
+  }
+
+
   return (
     <>
       <h2>{timer}</h2>
-      <button onClick={startTimer}>Start</button>
-      <button onClick={stopTimer}>Stop</button>
+      {word}
       <button onClick={resetTimer}>Reset</button>
     </>
   )
